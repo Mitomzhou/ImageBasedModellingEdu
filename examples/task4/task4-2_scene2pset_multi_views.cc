@@ -50,25 +50,24 @@ int
 main (int argc, char** argv)
 {
 
-    if(argc<4){
-        std::cout<<"usage: scendir outmeshdir(.ply) scale"<<std::endl;
-        return -1;
-    }
+//    if(argc<4){
+//        std::cout<<"usage: scendir outmeshdir(.ply) scale"<<std::endl;
+//        return -1;
+//    }
 
     AppSettings conf;
 
     // 场景文件夹
-    conf.scenedir = argv[1];
+    conf.scenedir = "/home/mitom/3DReconstruction/MVG_MVS/git/ImageBasedModellingEdu/examples/data/sfm_out";
     // 输出网格文件
-    conf.outmesh= argv[2];
+    conf.outmesh= "/home/mitom/3DReconstruction/MVG_MVS/git/ImageBasedModellingEdu/examples/data/sfm_out/building_dense.ply";
     // 获取图像尺度
-    std::stringstream stream(argv[3]);
-    stream>>conf.scale;
+    conf.scale = 2;
 
-    conf.dmname = std::string("depth-L") + argv[3];
+    conf.dmname = std::string("depth-L") + "2";
     conf.imagename = (conf.scale == 0)
                 ? "undistorted"
-                : std::string("undist-L") + argv[3];
+                : std::string("undist-L") + "2";
 
     std::cout << "Using depthmap \"" << conf.dmname
         << "\" and color image \"" << conf.imagename << "\"" << std::endl;

@@ -39,18 +39,17 @@ struct AppSettings{
 int
 main (int argc, char** argv)
 {
-    if(argc<3){
-        std::cout<<"usage: scendir scale"<<std::endl;
-        return -1;
-    }
+//    if(argc<3){
+//        std::cout<<"usage: scendir scale"<<std::endl;
+//        return -1;
+//    }
 
     AppSettings conf;
 
     // 场景文件夹
-    conf.scene_path = argv[1];
+    conf.scene_path = "/home/mitom/3DReconstruction/MVG_MVS/git/ImageBasedModellingEdu/examples/data/sfm_out";
     // 获取图像尺度
-    std::stringstream stream1(argv[2]);
-    stream1>>conf.mvs.scale;
+    conf.mvs.scale = 2;
 
     /* Load MVE scene. */
     core::Scene::Ptr scene;

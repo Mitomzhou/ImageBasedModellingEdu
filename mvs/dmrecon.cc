@@ -61,12 +61,9 @@ DMRecon::DMRecon(core::Scene::Ptr _scene, Settings const& _settings)
     /* Create list of SingleView pointers from MVE views. */
     views.resize(mve_views.size());
     for (std::size_t i = 0; i < mve_views.size(); ++i) {
-        if (mve_views[i] == nullptr || !mve_views[i]->is_camera_valid() ||
-            !mve_views[i]->has_image(this->settings.imageEmbedding,
-            core::IMAGE_TYPE_UINT8))
+        if (mve_views[i] == nullptr || !mve_views[i]->is_camera_valid() || !mve_views[i]->has_image(this->settings.imageEmbedding,core::IMAGE_TYPE_UINT8))
             continue;
-        views[i] = mvs::SingleView::create(scene, mve_views[i],
-            this->settings.imageEmbedding);
+        views[i] = mvs::SingleView::create(scene, mve_views[i], this->settings.imageEmbedding);
     }
 
     // 提取refrence view 并创建图像金字塔
